@@ -6,6 +6,7 @@ class DBconnect
 	protected $user;
 	protected $pass;
 	protected $database;
+	protected $connect;
 
 
 	public function __construct()
@@ -18,12 +19,14 @@ class DBconnect
 
 	public function init()
 	{
-		$connect = new mysql_connect(
+		$this->connect = new mysql_connect(
 			$this->host,
 			$this->user,
 			$this->pass,
 			$this->database
 		);
+
+		return $connect;
 	}
 }
 
